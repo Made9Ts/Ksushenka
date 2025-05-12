@@ -43,51 +43,6 @@ Ksushenka - это система автоматизации рабочих пр
    - Отредактируйте файл App.config, указав правильные параметры подключения к базе данных
    - Запустите файл Ksushenka.exe
 
-## Структура базы данных
-
-### Employees
-- employee_id (PK)
-- full_name
-- position
-- contact_info
-
-### CashRegisters
-- cash_register_id (PK)
-- location
-- serial_number
-
-### Shifts
-- shift_id (PK)
-- employee_id (FK)
-- cash_register_id (FK)
-- start_time
-- end_time
-- status
-- total_sales
-
-### MenuItems
-- item_id (PK)
-- name
-- description
-- price
-- is_available
-
-### Receipts
-- receipt_id (PK)
-- shift_id (FK)
-- total_amount
-- payment_type
-- status
-- created_at
-
-### ReceiptDetails
-- receipt_detail_id (PK)
-- receipt_id (FK)
-- item_id (FK)
-- quantity
-- price_at_time
-- discount
-
 ## Использование приложения
 
 1. **Главное меню** - позволяет перейти к управлению сменами, чеками или отчетам.
@@ -114,3 +69,6 @@ Ksushenka - это система автоматизации рабочих пр
 
 ## Лицензия
 © 2025 Ksushenka. Все права защищены. 
+
+## Текст от меня
+Это тебе от меня мини подарок, чтобы не начинать нам с нуля
