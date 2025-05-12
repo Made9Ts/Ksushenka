@@ -75,7 +75,8 @@ Ksushenka - это система автоматизации рабочих пр
 
 ##
 Структура базы
-//////////////
+////////////////////////////////////////////////////////////////////////////////////////
+
 CREATE TABLE Employees (
     employee_id SERIAL PRIMARY KEY,
     full_name VARCHAR(100) NOT NULL,
@@ -86,6 +87,8 @@ CREATE TABLE Employees (
     email VARCHAR(100),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+////////////////////////////////////////////////////////////////////////////////////////
 
 CREATE TABLE Shifts (
     shift_id SERIAL PRIMARY KEY,
@@ -98,11 +101,15 @@ CREATE TABLE Shifts (
     status VARCHAR(20) DEFAULT 'active' -- active/closed
 );
 
+////////////////////////////////////////////////////////////////////////////////////////
+
 CREATE TABLE CashRegisters (
     cash_register_id SERIAL PRIMARY KEY,
     location VARCHAR(100) NOT NULL, -- Местоположение (зал, бар)
     status VARCHAR(20) DEFAULT 'active' -- active/broken
 );
+
+////////////////////////////////////////////////////////////////////////////////////////
 
 CREATE TABLE Receipts (
     receipt_id SERIAL PRIMARY KEY,
@@ -114,6 +121,8 @@ CREATE TABLE Receipts (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+////////////////////////////////////////////////////////////////////////////////////////
+
 CREATE TABLE MenuItems (
     item_id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -121,6 +130,8 @@ CREATE TABLE MenuItems (
     category VARCHAR(50) NOT NULL, -- еда, напитки, десерты
     is_available BOOLEAN DEFAULT TRUE
 );
+
+////////////////////////////////////////////////////////////////////////////////////////
 
 CREATE TABLE ReceiptDetails (
     receipt_detail_id SERIAL PRIMARY KEY,
@@ -131,6 +142,8 @@ CREATE TABLE ReceiptDetails (
     discount DECIMAL(10,2) DEFAULT 0
 );
 
+////////////////////////////////////////////////////////////////////////////////////////
+
 CREATE TABLE Payments (
     payment_id SERIAL PRIMARY KEY,
     receipt_id INT REFERENCES Receipts(receipt_id),
@@ -138,6 +151,8 @@ CREATE TABLE Payments (
     payment_method VARCHAR(30) NOT NULL, -- cash/card/online
     payment_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+////////////////////////////////////////////////////////////////////////////////////////
 
 CREATE TABLE BonusesPenalties (
     bonus_id SERIAL PRIMARY KEY,
@@ -147,6 +162,8 @@ CREATE TABLE BonusesPenalties (
     reason TEXT,
     date DATE NOT NULL
 );
+
+////////////////////////////////////////////////////////////////////////////////////////
 
 CREATE TABLE EmployeePayouts (
     payout_id SERIAL PRIMARY KEY,
@@ -159,6 +176,8 @@ CREATE TABLE EmployeePayouts (
     payout_date DATE NOT NULL,
     is_paid BOOLEAN DEFAULT FALSE
 );
+
+////////////////////////////////////////////////////////////////////////////////////////
 
 
 Данные для заполнения бд
